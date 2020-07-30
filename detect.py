@@ -58,9 +58,9 @@ def main(_argv):
     prob_tensors = []
     for i, fm in enumerate(feature_maps):
       if i == 0:
-        output_tensors = decode(fm, FLAGS.input_size // 16, NUM_CLASS, STRIDES, ANCHORS, i, XYSCALE, FLAGS.framework)
+        output_tensors = decode(fm, input_size // 16, NUM_CLASS, STRIDES, ANCHORS, i, XYSCALE, FLAGS.framework)
       else:
-        output_tensors = decode(fm, FLAGS.input_size // 32, NUM_CLASS, STRIDES, ANCHORS, i, XYSCALE, FLAGS.framework)
+        output_tensors = decode(fm, input_size // 32, NUM_CLASS, STRIDES, ANCHORS, i, XYSCALE, FLAGS.framework)
       bbox_tensors.append(output_tensors[0])
       prob_tensors.append(output_tensors[1])
     pred_bbox = tf.concat(bbox_tensors, axis=1)
