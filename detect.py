@@ -53,7 +53,7 @@ def main(_argv):
     print(output_details)
     interpreter.set_tensor(input_details[0]['index'], images_data)
     interpreter.invoke()
-    pred = [interpreter.get_tensor(output_details[i]['index']) for i in range(len(output_details))]
+    feature_maps = [interpreter.get_tensor(output_details[i]['index']) for i in range(len(output_details))]
     bbox_tensors = []
     prob_tensors = []
     for i, fm in enumerate(feature_maps):
