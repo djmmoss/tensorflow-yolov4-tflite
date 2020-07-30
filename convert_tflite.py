@@ -16,7 +16,7 @@ flags.DEFINE_string('dataset', "/Volumes/Elements/data/coco_dataset/coco/5k.txt"
 
 def representative_data_gen():
   fimage = open(FLAGS.dataset).read().split()
-  for input_value in range(100):
+  for input_value in range(1000):
     if os.path.exists(fimage[input_value]):
       original_image=cv2.imread(fimage[input_value])
       original_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
